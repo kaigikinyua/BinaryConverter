@@ -9,27 +9,6 @@ void Whole(float num){
   }
   int number=p;
   while(n>0){
-    if (0<n and n<1){
-      int p=-1;int i=0;
-      while(pow(2,p)<n){
-        p++;
-        //cout<<p<<endl;
-      }  p=p-1;
-      while(n>0){
-        if(n>pow(2,p)){
-          n=n-pow(2,p);
-          p=p-1;
-          decimal[i]=1;
-        }else{
-          p=p-1;
-          binary[i]=0;
-        }
-        i++;
-        if(n<=0){
-          break;
-        }
-      }
-  }else{
     if(n>=pow(2,p)){
       n=n-pow(2,p);
       p=p-1;
@@ -42,11 +21,32 @@ void Whole(float num){
     }
       i++;
   }
+  while (0<n and n<1){
+    int p=-1;int i=0;
+    while(pow(2,p)<n){
+      p++;
+      //cout<<p<<endl;
+    }  p=p-1;
+    while(n>0){
+      if(n>pow(2,p)){
+        n=n-pow(2,p);
+        p=p-1;
+        decimal[i]=1;
+      }else{
+        p=p-1;
+        binary[i]=0;
+      }
+      i++;
+      if(n<=0){
+        break;
+      }
+    }
 }
+  cout<<"Whole number"<<endl;
   for (int j=0;j<=number;j++){
     cout<<binary[j];
   }
-  cout<<"\n"<<endl;
+  cout<<"\nFraction\n"<<endl;
   for (int j=0;j<=number;j++){
     cout<<decimal[j];
   }
@@ -54,17 +54,8 @@ void Whole(float num){
 }
 int main()
 {
-  int ans;
-  cout<<"Enter a choice \n1.Integer\n2.Decimal"<<endl;
-  cin>>ans;cout<<"\n"<<endl;
-  if (ans==1){
-    cout<<"Enter the number"<<endl;
-    float n;cin>>n;
-    Whole(n);
-  }else if(ans==2){
-    //call the decimal function
-  }else {
-    cout<<"Unknown Choice"<<endl;
-  }
+  cout<<"Enter the number"<<endl;
+  float n;cin>>n;
+  Whole(n);
   return 0;
 }
