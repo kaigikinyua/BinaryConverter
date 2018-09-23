@@ -4,15 +4,16 @@ using namespace std;
 //takes binary and dispalys the equivalent decimal
 void bin2deci(int bin,int j){
   int ans=0;int i=j;
-  //cout<<j<<endl;
+  cout<<i<<endl;
  while(i>0){
-   if((bin-pow(10,i))>0){
+   if((bin-pow(10,i))>=0){
      cout<<bin<<" binary "<<endl;
      ans+=pow(2,i);
      bin=bin-pow(10,i);
      cout<<"ans "<<i<<" bin "<<bin<<endl;
-   }else if((bin-pow(10,i))==1){
+   }if(i==1 && (bin-pow(10,1))<0){
      ans+=1;
+     cout<<" i when bin==1 "<< i <<endl;
    }
    i--;
  }
